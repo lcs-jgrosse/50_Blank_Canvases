@@ -22,7 +22,7 @@ let canvas = Canvas(width: 200, height: 100)
  Use whitespace and comments as appropriate.
  */
 // crreate a staring point for traveling through perlin noise space
-var start = 0.0
+var start = Double(random(from: 0, toButNotIncluding: 100))
 
 //create a perlin noise generator
 let p = PerlinGenerator()
@@ -42,6 +42,8 @@ for x in stride(from: 0, through: 200, by: 1){
     
     //make hight an integer
     let toY = Int(hight)
+    //set the color
+    canvas.lineColor = Color.init(hue: toY, saturation: 100, brightness: 100, alpha: 100)
     
     //draw the line
     canvas.drawLine(fromX: x, fromY: 0, toX: x, toY: toY)
