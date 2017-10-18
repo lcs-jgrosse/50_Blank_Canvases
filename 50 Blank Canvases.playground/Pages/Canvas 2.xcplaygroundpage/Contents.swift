@@ -13,8 +13,7 @@ import Cocoa
 import PlaygroundSupport
 
 // Create canvas
-let canvas = Canvas(width: 400, height: 300)
-
+let canvas = Canvas(width: 200, height: 100)
 /*:
  ## Add your code below
  
@@ -22,10 +21,31 @@ let canvas = Canvas(width: 400, height: 300)
  
  Use whitespace and comments as appropriate.
  */
-// Replace this comment with your first comment – what is the goal of the code you're about to write?
+// crreate a staring point for traveling through perlin noise space
+var start = 0.0
 
+//create a perlin noise generator
+let p = PerlinGenerator()
 
-
+for x in stride(from: 0, through: 200, by: 1){
+    
+    //move through perlin noise space
+    //larger means more variation
+    //smaller means less variation
+    start += 0.01
+    
+    //get perlin noise (gives us a random number between -1 and 1)
+    let randomvalue = p.perlinNoise(x: start)
+    
+    //convert to a range between 0 and 100
+    let hight = map(value: randomvalue, fromLower: -1, fromUpper: 1, toLower: 0, toUpper: 100)
+    
+    //make hight an integer
+    let toY = Int(hight)
+    
+    //draw the line
+    canvas.drawLine(fromX: x, fromY: 0, toX: x, toY: toY)
+}
 /*:
  ## Use source control
  To keep your work organized, and receive feedback, source control is a must.
