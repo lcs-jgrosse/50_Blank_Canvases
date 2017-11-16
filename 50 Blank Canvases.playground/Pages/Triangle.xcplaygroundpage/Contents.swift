@@ -1,9 +1,7 @@
-//: [Previous](@previous) / [Next](@next)
-//: # A Blank Canvas
 //:
 //: Use this page to experiment. Have fun!
 /*:
- ## Required code
+ ##
  
  The following statements are required to make the playground run.
  
@@ -24,7 +22,26 @@ let canvas = Canvas(width: 400, height: 300)
  */
 // Replace this comment with your first comment – what is the goal of the code you're about to write?
 
+// draw a triangle using the metapho of a "turtle"
+canvas.defaultLineWidth = 10
+// Step 1: Move to starting pointabout
+canvas.translate(byX: 75, byY: 100)
+canvas.drawAxes()
 
+// Step 2: Draw a side of the triangle
+canvas.drawLine(fromX: 0, fromY: 0, toX: 200, toY: 0)
+canvas.translate(byX: 200, byY: 0)
+canvas.rotate(by: 120)
+
+// Step 3: Draw a side of the triangle
+canvas.drawLine(fromX: 0, fromY: 0, toX: 200, toY: 0)
+canvas.translate(byX: 200, byY: 0)
+canvas.rotate(by: 120)
+
+// Step 3: Draw a side of the triangle
+canvas.drawLine(fromX: 0, fromY: 0, toX: 200, toY: 0)
+canvas.translate(byX: 200, byY: 0)
+canvas.rotate(by: 120)
 
 /*:
  ## Use source control
